@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asshetics Clinic</title>
+    <link rel="icon" href="lgo.png" type="image/x-icon">
+    <style>
+         body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    scroll-behavior: smooth;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #893f04;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+}
+
+header nav {
+    display: flex;
+    align-items: center;
+}
+
+header nav a {
+    margin: 0 20px;
+    text-decoration: none;
+    color: #ffffff;
+}
+
+header nav a:hover {
+    color: #000000;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    color: #ffffff;
+}
+
+.logo img {
+    height: 40px;
+    margin-right: 10px;
+    border-radius: 50px;
+}
+
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+
+.menu-toggle div {
+    width: 100%;
+    height: 3px;
+    background-color: #ffffff;
+    margin: 3px 0;
+}
+
+@media (max-width: 768px) {
+    /* Ajusta o menu de navegação para ficar dentro da tela em dispositivos móveis */
+    header nav {
+        display: none;
+        flex-direction: column;
+        background-color: #893f04;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        left: 0; /* Garante que o menu ocupe toda a largura da tela */
+        width: 100%;
+        z-index: 999; /* Garante que o menu fique acima do conteúdo */
+    }
+
+    header nav.active {
+        display: flex;
+    }
+
+    header nav a {
+        margin: 10px 0;
+        text-align: center;
+    }
+
+    .menu-toggle {
+        display: flex;
+        position: absolute;
+        left: 70%; /* Alinha o ícone à esquerda */
+        top: 50%; /* Centraliza verticalmente o ícone em relação à altura do cabeçalho */
+        transform: translateY(-50%); /* Ajusta para centralizar perfeitamente */
+    }
+}
+
+
+        .img{
+            border-radius: 50px;
+            width: 100%;
+        }
+
+        section {
+            padding: 100px 20px;
+            min-height: 100vh;
+        }
+
+        .hero {
+    background: url('background.jpeg') center/cover no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    width: 100%;
+    height: 100vh; /* A altura será 100% da altura da janela de visualização */
+    background-size: cover; /* A imagem cobre toda a área disponível */
+    background-position: center center; /* Garante que a imagem fique centralizada */
+}
+
+@media (max-width: 768px) {
+    .hero {
+        height: 50vh; /* Em telas menores, podemos diminuir a altura */
+    }
+}
+
+
+        .hero h1 {
+            color: #ffffff;
+            text-shadow: 2px 2px 4px rgba(251, 232, 232, 0.7);
+        }
+
+        .about {
+  display: flex;
+  align-items: center;
+  padding: 50px;
+  background-color: #fff;
+  flex-direction: row; /* Padrão, imagem ao lado do texto em telas grandes */
+}
+
+.about img {
+  border-radius: 20px;
+  width: 100%;
+  height: 500px;
+  margin-right: 30px;
+  border: 3px solid #93531f;
+}
+
+.about-content {
+  max-width: 600px;
+}
+
+.about-content h2 {
+  color: #893f04;
+  font-size: 32px;
+}
+
+.about-content p {
+  line-height: 1.6;
+  color: #000000;
+}
+
+/* Media query para telas menores (como celulares) */
+@media (max-width: 768px) {
+  .about {
+    flex-direction: column; /* Coloca o texto acima da imagem em telas pequenas */
+    align-items: flex-start; /* Alinha os itens à esquerda */
+  }
+
+  .about img {
+    width: 100%;
+    height: auto; /* Ajusta a altura da imagem automaticamente */
+    margin-right: 0; /* Remove a margem à direita */
+    margin-bottom: 20px; /* Adiciona margem abaixo da imagem */
+  }
+}
+
+
+        .carrosel-section {
+            background-color: #f9f9f9;
+            padding: 50px;
+            text-align: center;
+        }
+
+        .carrosel-section h2 {
+            color: #893f04;
+            margin-bottom: 20px;
+        }
+
+        .carrosel-cards {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .carrosel-card {
+            background-color: #ffffff;
+            border: 1px solid #e0e0e0;
+            border-radius: 10px;
+            padding: 20px;
+            width: 300px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: left;
+        }
+
+        .carrosel-card h3 {
+            color: #893f04;
+            margin-bottom: 10px;
+        }
+
+        .carrosel-card p {
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .specialties {
+            padding: 50px;
+            background-color: #c67f43;
+        }
+
+        .specialties h2 {
+            text-align: center;
+            color: #ffffff;
+            font-size: 32px;
+        }
+
+        .specialty-card {
+            background-color: #f9f9f9;
+            margin: 20px auto;
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 800px;
+        }
+
+        .specialty-card-color {
+            background-color: #893f04;
+            margin: 20px auto;
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 800px;
+        }
+
+        .specialty-card h3 {
+            color: #893f04;
+            font-size: 24px;
+        }
+        .specialty-card-color h3 {
+            color: #ffffff;
+            font-size: 24px;
+        }
+
+        .specialty-card p {
+            color: #000;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        .specialty-card-color p {
+            color: #ffffff;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        .btn-consult {
+            display: block;
+            margin: 30px auto;
+            padding: 10px 20px;
+            background-color: #893f04;
+            color: #ffffff;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 18px;
+            transition: background-color 0.3s;
+        }
+
+        .btn-consult:hover {
+            background-color: #722e02;
+        }
+            .blog {
+    padding: 50px;
+    background-color: #f9f9f9;
+}
+
+.blog h2 {
+    font-family: 'Arial', sans-serif;
+    font-size: 28px;
+}
+
+.blog p {
+    font-family: 'Arial', sans-serif;
+    font-size: 16px;
+    color: #555;
+}
+
+.blog-cards {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.blog-card {
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    width: 300px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.blog-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+.blog-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.blog-card h3 {
+    color: #893f04;
+    margin: 10px 0;
+    font-family: 'Arial', sans-serif;
+}
+
+.blog-card p {
+    padding: 0 15px;
+    color: #333;
+    line-height: 1.6;
+    font-family: 'Arial', sans-serif;
+    font-size: 14px;
+}
+.contact {
+    padding: 20px;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+.contact h2 {
+    font-size: 2rem;
+    color: #893f04;
+}
+
+.contact p {
+    font-size: 1rem;
+    margin-bottom: 20px;
+    color: #666;
+}
+
+.contact-info {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.contact-details {
+    max-width: 300px;
+    text-align: left;
+}
+
+.contact-details p {
+    margin: 10px 0;
+    font-size: 1rem;
+    color: #893f04;
+}
+
+.contact-details strong {
+    color: #893f04;
+}
+
+.whatsapp-btn {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 15px;
+    background-color: #893f04;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 50px;
+    font-size: 1rem;
+}
+
+.whatsapp-btn:hover {
+    background-color: #752f03;
+}
+
+.contact-map iframe {
+    border: 0;
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+        footer {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #eae9e9;
+            color: rgb(0, 0, 0);
+            padding: 20px 0;
+        }
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            padding: 0 20px;
+        }
+        .footer-column {
+            flex: 1 1 200px;
+            margin: 10px;
+        }
+        .footer-column h4 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        .footer-column ul {
+            list-style: none;
+            padding: 0;
+        }
+        .footer-column ul li {
+            margin-bottom: 8px;
+        }
+        .footer-column ul li a {
+            color: rgb(0, 0, 0);
+            text-decoration: none;
+        }
+        .footer-column ul li a:hover {
+            text-decoration: underline;
+        }
+        .footer-logo {
+            text-align: center;
+        }
+        .footer-logo img {
+            max-width: 150px;
+            margin-bottom: 10px;
+            border-radius: 100px;
+            box-shadow: 0 20px 20px rgba(0, 0, 0, 0.1);
+        }
+        .footer-logo p {
+            font-size: 14px;
+        }
+        .social-icons {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        .social-icons a {
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: white;
+            color: #6d6d6d;
+            border-radius: 50%;
+            text-decoration: none;
+        }
+        .social-icons a:hover {
+            background-color: #dcdcdc;
+        }
+        .footer-bottom {
+            background-color: #893f04;
+            color: #ffffff;
+            text-align: center;
+            padding: 10px 20px;
+            font-size: 14px;
+        }
+        .footer-bottom a {
+            color: #ffffff;
+            text-decoration: none;
+        }
+        .footer-bottom a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <img src="logo.jpeg" alt="Logo">
+            <span>Asshetics Clinic</span>
+        </div>
+        <div class="menu-toggle" onclick="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <nav id="menu">
+            <a href="#home">Home</a>
+            <a href="#about">Sobre Nós</a>
+            <a href="#specialties">Especialidades</a>
+            <a href="#blog">Blog</a>
+            <a href="#contact">Contato</a>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <h1>"Ajudamos você a encontrar a sua melhor forma"</h1>
+    </section>
+
+    <section id="about" class="about">
+        <img src="about-image.jpeg" alt="Esteticista cuidando de uma paciente">
+        <div class="about-content">
+            <h2>Olá, somos a <span style="color: #893f04;">Asshetics Clinic</span></h2>
+            <p>A Asshetics Clinic foi criada com o objetivo de priorizar o bem-estar dos pacientes, cuidando da sua saúde de forma integrada, através de profissionais de ponta e tecnologias inovadoras. Tudo isso, em um ambiente acolhedor e com muito conforto. Cada detalhe foi planejado para garantir experiências transformadoras, refletindo a busca constante por resultados naturais e eficazes.</p>
+            <p>Na Asshetics Clinic, você encontrará a harmonia perfeita entre ciência, estética e cuidado. Agende já a sua avaliação.</p>
+            <h2><span style="color: #893f04;">Tratamentos Personalizados com Alta Tecnologia</span></h2>
+            <p>Na Asshetics Clinic, cada protocolo é desenvolvido de forma individualizada, integrando tecnologias avançadas e técnicas atualizadas para garantir resultados rápidos, duradouros e seguros. Nossos tratamentos incluem: </p>
+
+            <p><ol><li>Procedimentos dermatológicos: combate a acne, melasma, rosácea e mais.</li></p>
+            <p><li>Tratamentos estéticos corporais e faciais: rejuvenescimento, harmonização facial, redução de medidas.</li></p>
+            <p><li>Tratamentos Íntimos: protocolos que promovem conforto, autoestima e bem-estar, utilizando técnicas seguras e realizadas com total discrição.</li></p></ol>
+        </div>
+    </section>
+
+    <section class="carrosel-section">
+        <h2>Por que Escolher a Asshetics Clinic?</h2>
+        <div class="carrosel-cards">
+            <div class="carrosel-card">
+                <h3>Tecnologia de ponta</h3>
+                <p>Contamos com equipamentos modernos e avançados para garantir a máxima eficácia nos tratamentos realizados, proporcionando resultados rápidos e seguros.</p>
+            </div>
+            <div class="carrosel-card">
+                <h3>Atendimento personalizado e com total discrição</h3>
+                <p>Cada paciente é único, e nosso atendimento reflete isso. Oferecemos um ambiente acolhedor, com total privacidade, respeitando as necessidades individuais.</p>
+            </div>
+            <div class="carrosel-card">
+                <h3>Resultados comprovados com protocolos inovadores</h3>
+                <p>Nossos protocolos são desenvolvidos com base em estudos atualizados e técnicas inovadoras, garantindo resultados reais e satisfatórios.</p>
+            </div>
+        </div>
+        <a href="https://api.whatsapp.com/send/?phone=5511963346069&text&type=phone_number&app_absent=0" class="btn-consult">Agendar Consulta</a>
+    </section>
+
+    <section id="specialties" class="specialties">
+        <h2>Especialidades</h2>
+        <div class="specialty-card-color">
+            <h3>Dermatoscopia</h3>
+            <p>A dermatoscopia é uma técnica avançada utilizada para avaliar lesões de pele de forma não invasiva. Por meio de um dermatoscópio, é possível identificar características específicas de pintas e outras lesões, auxiliando no diagnóstico precoce de condições como o câncer de pele.</p>
+        </div>
+        <div class="specialty-card">
+            <h3>Tratamento de Doenças de Pele</h3>
+            <p>Oferecemos soluções completas para o tratamento de diversas doenças de pele, como acne, rosácea, psoríase e dermatites. Nossos protocolos são personalizados, focados em promover saúde e conforto, utilizando as mais recentes tecnologias e medicamentos.</p>
+        </div>
+        <div class="specialty-card-color">
+            <h3>Procedimentos Estéticos</h3>
+            <p>Realizamos procedimentos estéticos voltados para a melhora da saúde e aparência da pele, como peelings, aplicação de toxina botulínica, preenchimentos faciais e tratamentos de rejuvenescimento. Tudo com segurança e técnicas modernas.</p>
+        </div>
+        <div class="specialty-card">
+            <h3>Cirurgias Dermatológicas</h3>
+            <p>Contamos com especialistas em cirurgias dermatológicas para a remoção de lesões benignas e malignas, além de técnicas para corrigir cicatrizes e outras imperfeições. Garantimos um cuidado integral, sempre priorizando a estética e a saúde do paciente.</p>
+        </div>
+    </section>
+
+
+    <section id="blog" class="blog">
+        <h2 style="text-align: center; color: #893f04;">Nosso Blog</h2>
+        <p style="text-align: center;">Descubra dicas incríveis para cuidar da sua beleza e bem-estar</p>
+        <div class="blog-cards">
+            <div class="blog-card">
+                <img src="tratamento-facial.jpeg" alt="Tratamento facial">
+                <h3>Importância da Limpeza de Pele</h3>
+                <p>Manter a pele limpa é essencial para remover impurezas, evitar acne e garantir uma aparência saudável e radiante.</p>
+            </div>
+            <div class="blog-card">
+                <img src="cuidados-cabelos.jpeg" alt="Cabelos bem cuidados">
+                <h3>Cuidados Essenciais com os Cabelos</h3>
+                <p>Hidratar regularmente e usar produtos adequados ao seu tipo de cabelo são segredos para fios fortes e brilhantes.</p>
+            </div>
+            <div class="blog-card">
+                <img src="autoestima.jpeg" alt="Pessoa se olhando no espelho">
+                <h3>Estética e Autoestima</h3>
+                <p>Investir na estética não é apenas sobre aparência, mas também sobre bem-estar emocional e confiança.</p>
+            </div>
+        </div>
+    </section>
+    
+
+    <section id="contact" class="contact">
+        <h2>Fale Conosco</h2>
+        <p>Pelo canal de atendimento ao cliente, estamos disponíveis para atendê-lo(a) da melhor forma.</p>
+        <div class="contact-info">
+            <div class="contact-details">
+                <p><strong>📞 Telefone:</strong> (11) 96334-6069</p>
+                <p><strong>📱 WhatsApp:</strong> (11) 96334-6069</p>
+                <p><strong>✉ E-mail:</strong> contato@programaag.com</p>
+                <p><strong>📍 Localização:</strong> São Caetano do Sul - SP</p>
+                <a href="https://wa.me/5511963346069" class="whatsapp-btn" target="_blank">📲 Fale Conosco pelo WhatsApp</a>
+            </div>
+            <div class="contact-map">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3656.841708425786!2d-46.56429348502092!3d-23.62085388465279!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce428f88ddc251%3A0x9aef12ed7a89f10a!2sSão%20Caetano%20do%20Sul%2C%20SP!5e0!3m2!1sen!2sbr!4v1672760347511!5m2!1sen!2sbr"
+                    width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy">
+                </iframe>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-column footer-logo">
+                <img src="logo.jpeg" alt="Programa Ag Nutrição">
+                <p>Seu corpo é único, e cada detalhe merece ser tratado com amor e dedicação!</p>
+            </div>
+            <div class="footer-column">
+                <h4>Contato</h4>
+                <ul>
+                    <li>📞 (11) 96334-6069</li>
+                <li>📱 @programa.ag</li>
+                <li>✉ contato@programaag.com</li>
+                <li>📍 São Caetano do Sul</li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Institucional</h4>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#about">Sobre Nós</a></li>
+                    <li><a href="#contact">Contato</a></li>
+                    <li><a href="#blog">Blog</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Nossas Especialidades</h4>
+                <ul>
+                    <li><a href="#specialties">Dermatoscopia</a></li>
+                    <li><a href="#specialties">Tratamento de Doenças de Pele</a></li>
+                    <li><a href="#specialties">Procedimentos Estéticos</a></li>
+                    <li><a href="#specialties">Cirurgias Dermatológicas</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Onde nos encontrar</h4>
+                <div class="social-icons">
+                    <a href="#" title="Instagram"><img class="img" src="insta.png"alt="ìcone do Instragram"></a>
+                    <a href="#" title="TikTok"><img class="img" src="tiktok.png"alt="ìcone do Tik tok"></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            Programa Ag Estética - Copyright 2024 - Todos os direitos reservados
+            | <a href="#">Políticas de Privacidade</a>
+        </div>
+    </footer>
+    <script>
+        const menuToggle = document.querySelector('.menu-toggle');
+        const nav = document.querySelector('header nav');
+    
+        menuToggle.addEventListener('click', () => {
+            nav.classList.toggle('active');
+        });
+    </script>
+    <script>
+        // Seleciona todos os cards com a classe "specialty-card"
+        const cards = document.querySelectorAll('.specialty-card, .specialty-card-color');
+    
+        // Adiciona os eventos de mouseover e mouseout para criar o efeito
+        cards.forEach(card => {
+            card.addEventListener('mouseover', () => {
+                card.style.transition = 'transform 0.5s ease, box-shadow 0.5s ease';
+                card.style.transform = 'translateY(-8px)';
+                card.style.boxShadow = '0 12px 20px rgba(0, 0, 0, 0.15)';
+            });
+    
+            card.addEventListener('mouseout', () => {
+                card.style.transition = 'transform 0.5s ease, box-shadow 0.5s ease';
+                card.style.transform = 'translateY(0)';
+                card.style.boxShadow = '0 4px 6px rgba(0, 0, 0, 0.1)';
+            });
+        });
+    </script>
+    
+</body>
+</html>
